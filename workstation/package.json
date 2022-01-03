@@ -4,7 +4,12 @@
   "scripts": {
     "init:rax": "node scripts/rax/init/index.mjs",
     "start:rax": "node scripts/rax/start/index.mjs",
-    "build:rax": "node scripts/rax/build/index.mjs"
+    "build:rax": "node scripts/rax/build/index.mjs",
+    "preinstall": "npx only-allow pnpm"
+  },
+  "private": true,
+  "engines": {
+    "node": ">= 16"
   },
   "dependencies": {
     "jsx2mp-runtime": "^0.4.8"

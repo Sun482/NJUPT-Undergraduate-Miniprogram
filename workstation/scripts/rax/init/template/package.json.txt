@@ -1,0 +1,8 @@
+{
+  "pageName": "${pageName}",
+  "scripts": {
+    "build": "build-scripts build",
+    "start": "build-scripts start --port ${port}"
+  },
+  "license": "MIT"
+}

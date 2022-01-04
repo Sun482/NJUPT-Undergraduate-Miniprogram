@@ -4,7 +4,7 @@ import readTemplate from "./readTemplate.mjs";
 
 export default (pageName) =>
   new Promise((resolve) => {
-    const targetDirectory = `pages/${pageName}`;
+    const targetDirectory = `workstation/pages/${pageName}`;
     access(targetDirectory, constants.W_OK)
       .then(() => {
         console.log(

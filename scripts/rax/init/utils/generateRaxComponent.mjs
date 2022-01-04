@@ -4,7 +4,7 @@ import readTemplate from "./readTemplate.mjs";
 
 export default (pageName) =>
   new Promise((resolve, reject) => {
-    const targetDirectory = `Rax/pages/${pageName}`;
+    const targetDirectory = `workstation/Rax/pages/${pageName}`;
     access(targetDirectory, constants.W_OK)
       .then(() => {
         console.log(

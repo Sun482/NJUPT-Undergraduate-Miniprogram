@@ -4,10 +4,10 @@ import createPagesFolder from "./createPagesFolder.mjs";
 
 export default () =>
   new Promise(async (resolve) => {
-    const folders = await readdir("pages");
+    const folders = await readdir("workstation/pages");
     Promise.all(
       folders.map((folderName) =>
-        createPagesFolder(`../dist/pages/${folderName}`, folderName)
+        createPagesFolder(`dist/pages/${folderName}`, folderName)
       )
     )
       .then(() => {

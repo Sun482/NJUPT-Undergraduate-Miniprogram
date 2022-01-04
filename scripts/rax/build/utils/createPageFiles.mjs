@@ -4,7 +4,7 @@ import { minify } from "uglify-js";
 
 export default (pageName) =>
   new Promise((resolve) => {
-    const prefix = `pages/${pageName}/${pageName}`;
+    const prefix = `workstation/pages/${pageName}/${pageName}`;
     Promise.all([
       readFile(`${prefix}.js`, "utf-8"),
       readFile(`${prefix}.json`, "utf-8"),
@@ -15,7 +15,7 @@ export default (pageName) =>
         const jsonObj = JSON.parse(jsonContent);
         jsonObj.usingComponents[pageName] = "./components/index";
         jsonContent = JSON.stringify(jsonObj);
-        const destPrefix = `../dist/pages/${pageName}/${pageName}`;
+        const destPrefix = `dist/pages/${pageName}/${pageName}`;
         Promise.all([
           writeFile(`${destPrefix}.js`, jsContent),
           writeFile(`${destPrefix}.json`, jsonContent),

@@ -9,7 +9,7 @@ export default (pageNames) =>
           const ls = spawn(
             process.platform === "win32" ? "pnpm.cmd" : "pnpm",
             ["run", "start"],
-            { cwd: `Rax/pages/${pageName}` }
+            { cwd: `workstation/Rax/pages/${pageName}` }
           );
           ls.stdout.on("data", (data) => {
             console.log(`path: Rax/pages/${pageName}\n ${data}`);

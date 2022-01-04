@@ -8,7 +8,7 @@ if (process.argv[2] !== undefined) {
     console.log("启动完成");
   });
 } else {
-  readdir("pages").then((pageNames) => {
+  readdir("workstation/pages").then((pageNames) => {
     runStartInRaxPage(pageNames).then(() => {
       console.log("启动完成");
     });

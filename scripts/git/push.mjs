@@ -12,7 +12,7 @@ const timezone = require("dayjs/plugin/timezone");
 dayjs.extend(utc);
 dayjs.extend(timezone);
 
-const { version: lastVersion } = require("./package");
+const { version: lastVersion } = require("./package.json");
 
 const { log } = console;
 
@@ -137,13 +137,13 @@ if (isChangeVersion === "Yes") {
     getLog(resolve);
   });
 
-  const packageJSON = require("./package");
+  const packageJSON = require("./package.json");
   packageJSON.nextVersion = versionNumber;
   await writeFile("package.json", JSON.stringify(packageJSON, null, 2), {
     flag: "w+",
   });
 
-  const AppLog = require("./AppLog");
+  const AppLog = require("./AppLog.json");
   const time = dayjs.tz(dayjs(), "Asia/Shanghai").format("YYYY-MM-DD");
   AppLog.data.push({
     content: logList,

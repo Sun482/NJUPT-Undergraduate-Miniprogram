@@ -137,6 +137,12 @@ if (isChangeVersion === "Yes") {
     getLog(resolve);
   });
 
+  let releaseLog = `本次更新内容如下: \n`
+  logList.forEach((content) => {
+    releaseLog += `* ${content}\n`;
+  });
+
+  await writeFile("Release.md", releaseLog, { flag: "w+"})
   const packageJSON = require("../../package");
   packageJSON.nextVersion = versionNumber;
   await writeFile("package.json", JSON.stringify(packageJSON, null, 2), {

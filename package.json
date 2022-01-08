@@ -1,6 +1,7 @@
 {
   "name": "microservice-example",
   "version": "0.0.0",
+  "nextVersion": "0.0.0",
   "scripts": {
     "init:rax": "node scripts/rax/init/index.mjs",
     "start:rax": "node scripts/rax/start/index.mjs",
@@ -8,7 +9,10 @@
     "preinstall": "npx only-allow pnpm",
     "commit": "node scripts/git/commit.mjs",
     "push": "node scripts/git/push.mjs",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "changelog": "node scripts/release/changelog.mjs",
+    "applog": "node scripts/release/applog.mjs",
+    "updateVersion": "node scripts/release/updateVersion.mjs"
   },
   "private": true,
   "engines": {

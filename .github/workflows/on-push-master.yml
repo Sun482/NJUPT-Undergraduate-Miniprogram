@@ -27,6 +27,7 @@ jobs:
       - name: Preinstall
         if: ${{steps.version.outputs.value}} != ${{steps.nextVersion.outputs.value}}
         run: |
+          echo "${{steps.version.outputs.value}}, ${{steps.nextVersion.outputs.value}}"
           npm install pnpm -g
           pnpm i
       - name: GitConfig

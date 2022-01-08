@@ -122,7 +122,7 @@ gitlogList.forEach((logContent) => {
 });
 
 const time = dayjs.tz(dayjs(), "Asia/Shanghai").format("YYYY-MM-DD");
-const currentVersionTitle = `\n## [${nextVersion}](https://github.com/Awen-hub/git-test/compare/${version}...${nextVersion}) (${time})\n`;
+const currentVersionTitle = `\n## [${nextVersion}](https://github.com/Qingyou-Studio/NJUPT-Undergraduate-Miniprogram/compare/${version}...${nextVersion}) (${time})\n`;
 const changelogTitle = await readFirstLine("CHANGELOG.md");
 
 const { featContentList, fixContentList, perfContentList, othersContentList } =
@@ -132,7 +132,7 @@ let changeLogStr = `${changelogTitle}\n\n${currentVersionTitle}\n`;
 const addChangeLogItem = (content) => {
   const { author, date, scope, subject, hash, shortHash } = content;
   const frontContent = scope ? `* **${scope}:** ` : "*  ";
-  changeLogStr += `${frontContent}${subject}  @[${author}](https://github.com/${author}), ${date} ([${shortHash}](https://github.com/Awen-hub/git-test/commit/${hash}))\n`;
+  changeLogStr += `${frontContent}${subject}  @[${author}](https://github.com/${author}), ${date} ([${shortHash}](https://github.com/Qingyou-Studio/NJUPT-Undergraduate-Miniprogram/commit/${hash}))\n`;
 };
 
 const generateChangeLogWithLogList = (contentList, title) => {

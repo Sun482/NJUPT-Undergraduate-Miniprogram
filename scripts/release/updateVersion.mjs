@@ -19,4 +19,4 @@ await writeFile("package.json", JSON.stringify(packageJSON, null, 2), {
   flag: "w+",
 });
 
-log(chalk.blue("package.json更新成功"))
+log(chalk.blue("package.json更新成功"));

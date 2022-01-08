@@ -35,15 +35,16 @@ const handleResolve = (stdout, message, resolve, content = "") => {
   resolve(content);
 };
 
-const gitTag = () => new Promise((resolve) => {
-  exec(`git tag ${nextVersion}`, (err, stdout) => {
-    if (err) {
-      handleErr(err, "git tag发生错误");
-    } else {
-      handleResolve(stdout, "git tag执行成功", resolve);
-    }
+const gitTag = () =>
+  new Promise((resolve) => {
+    exec(`git tag ${nextVersion}`, (err, stdout) => {
+      if (err) {
+        handleErr(err, "git tag发生错误");
+      } else {
+        handleResolve(stdout, "git tag执行成功", resolve);
+      }
+    });
   });
-});
 
 const splitSymbol = `?${Math.random()}?`;
 const getGitLogList = () =>
@@ -67,7 +68,7 @@ const logCollection = {
   othersContentList: [],
 };
 
-await gitTag()
+await gitTag();
 const gitlogList = await getGitLogList();
 
 gitlogList.forEach((logContent) => {
@@ -146,9 +147,11 @@ generateChangeLogWithLogList(fixContentList, `\n### Bug Fixes\n`);
 generateChangeLogWithLogList(perfContentList, `\n### Perf\n`);
 generateChangeLogWithLogList(othersContentList, `\n### Others\n`);
 
-const beforeChangeLog = (await readFile("CHANGELOG.md", {
-  encoding: "utf-8",
-})).split(changelogTitle)[1];
+const beforeChangeLog = (
+  await readFile("CHANGELOG.md", {
+    encoding: "utf-8",
+  })
+).split(changelogTitle)[1];
 
 changeLogStr += `\n\n` + beforeChangeLog;
 await writeFile("CHANGELOG.md", changeLogStr, { flag: "w+" });

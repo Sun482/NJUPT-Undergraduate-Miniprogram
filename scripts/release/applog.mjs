@@ -16,25 +16,22 @@ if (version === nextVersion) {
 const applogTitle = await readFirstLine("AppLog.md");
 
 const appLogJSON = require("../../AppLog");
-const { content: currentAppLogList, title } =
-  appLogJSON.data.shift();
+const { content: currentAppLogList, title } = appLogJSON.data.shift();
 
-let applogStr = applogTitle + `\n\n`
+let applogStr = applogTitle + `\n\n`;
 let currentAppLogTitle = `\n## ${title}\n`;
-applogStr += currentAppLogTitle
+applogStr += currentAppLogTitle;
 currentAppLogList.forEach((content) => {
   applogStr += `* ${content}\n`;
 });
 
-const beforeChangeLog = (await readFile("AppLog.md", {
-  encoding: "utf-8",
-})).split(applogTitle)[1];
+const beforeChangeLog = (
+  await readFile("AppLog.md", {
+    encoding: "utf-8",
+  })
+).split(applogTitle)[1];
 
 applogStr += `\n\n` + beforeChangeLog;
 
-await writeFile(
-  "AppLog.md",
-  applogStr,
-  { flag: "w+" }
-);
+await writeFile("AppLog.md", applogStr, { flag: "w+" });
 log(chalk.blue("App日志写入成功"));

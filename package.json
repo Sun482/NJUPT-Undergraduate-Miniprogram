@@ -1,6 +1,6 @@
 {
   "name": "microservice-example",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "nextVersion": "0.0.4",
   "scripts": {
     "init:rax": "node scripts/rax/init/index.mjs",

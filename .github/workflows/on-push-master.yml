@@ -72,7 +72,7 @@ jobs:
           path: ./package.json
           property: version
       - name: readCurrentVersion
-        id: version
+        id: nextVersion
         uses: ashley-taylor/read-json-property-action@v1.0
         with:
           path: ./package.json

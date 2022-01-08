@@ -1,5 +1,12 @@
 {
-  "data": [],
+  "data": [
+    {
+      "content": [
+        "使用GitHub-action生成日志"
+      ],
+      "title": "2022-01-08 新版本(V0.0.4)"
+    }
+  ],
   "errCode": null,
   "errMsg": null,
   "success": true

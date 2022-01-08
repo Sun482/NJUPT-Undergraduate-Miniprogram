@@ -1,6 +1,23 @@
 # 南邮本科生小程序代码更新日志
 
 
+## [0.0.6](https://github.com/Qingyou-Studio/NJUPT-Undergraduate-Miniprogram/compare/0.0.5...0.0.6) (2022-01-08)
+
+
+### Features
+* **release:** 增加release更新说明  @[Awen-hub](https://github.com/Awen-hub), 2022-01-08 ([8a2db6d](https://github.com/Qingyou-Studio/NJUPT-Undergraduate-Miniprogram/commit/8a2db6d08fb70c92daeb8858b5ea58eee077cded))
+
+### Bug Fixes
+* **log:** 修复app日志顺序问题  @[Awen-hub](https://github.com/Awen-hub), 2022-01-08 ([92841d6](https://github.com/Qingyou-Studio/NJUPT-Undergraduate-Miniprogram/commit/92841d6eca074193abc51e2d811c0244acf0c366))
+
+### Others
+*  修改package.json和AppLog.json  @[Awen-hub](https://github.com/Awen-hub), 2022-01-08 ([d0f90b2](https://github.com/Qingyou-Studio/NJUPT-Undergraduate-Miniprogram/commit/d0f90b2faa0b413877009f1ec2da4bdda12ea9c1))
+* **log:** 更新日志  @[Awen-hub](https://github.com/Awen-hub), 2022-01-08 ([814f25e](https://github.com/Qingyou-Studio/NJUPT-Undergraduate-Miniprogram/commit/814f25ec31a211939e70890e10276cbf5dde73dc))
+
+
+
+
+
 ## [0.0.5](https://github.com/Qingyou-Studio/NJUPT-Undergraduate-Miniprogram/compare/0.0.4...0.0.5) (2022-01-08)
 
 

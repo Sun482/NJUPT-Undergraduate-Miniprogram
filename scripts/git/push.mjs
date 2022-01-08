@@ -67,7 +67,7 @@ const getBranch = () =>
 const gitPush = (nowBranch) =>
   new Promise((resolve) => {
     exec(
-      `git push --set-upstream origin ${nowBranch} --no-verify`,
+      `git push --set-upstream origin ${nowBranch} --no-verify --tags`,
       (err, stdout) => {
         if (err) {
           handleErr(err, "git push发生错误");

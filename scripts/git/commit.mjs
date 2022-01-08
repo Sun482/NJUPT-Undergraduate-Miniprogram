@@ -83,6 +83,9 @@ const gitAdd = () =>
 
 const gitCommit = (type, scope, subject) =>
   new Promise((resolve) => {
+    if (scope !== "") {
+      scope = `(${scope})`
+    }
     exec(`git commit -m "${type}${scope}: ${subject}" -n`, (err, stdout) => {
       if (err) {
         handleErr(err, "git commit执行出错");

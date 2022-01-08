@@ -145,7 +145,7 @@ if (isChangeVersion === "Yes") {
 
   const AppLog = require("../../AppLog");
   const time = dayjs.tz(dayjs(), "Asia/Shanghai").format("YYYY-MM-DD");
-  AppLog.data.push({
+  AppLog.data.unshift({
     content: logList,
     title: `${time} 新版本(V${versionNumber})`,
   });

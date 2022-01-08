@@ -1,0 +1,67 @@
+on:
+  push:
+    branches:    
+      - master
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actionseckout@v2
+        with:
+          fetch-depth: 0
+      - uses: actionstup-node@v2
+        with:
+          node-version: 16
+      - name: Preinstall
+        run: |
+          npm install pnpm -g
+          pnpm i
+      - name: GitConfig
+        run: |
+          git config --global user.email "920733056@qq.com"
+          git config --global user.name "Awen-hub"
+      - name: UpdateLog
+        run: |
+          pnpm run changelog
+          pnpm run applog
+          pnpm run updateVersion
+      - name: Branch protection OFF
+        uses: octokit/request-action@v2.x
+        with:
+          route: PUT /repos/:repository/branches/master/protection
+          repository: ${{ github.repository }}
+          required_status_checks: |
+            null
+          enforce_admins: |
+            null
+          required_pull_request_reviews: |
+            null
+          restrictions: | 
+            null 
+        env:
+          GITHUB_TOKEN: ${{ secrets.PUSH_TOKEN }}
+      - name: Repush
+        run: |
+          git add .
+          git commit -m "misc(log): 更新日志" -n
+          git push --set-upstream origin master --no-verify --tags
+        env:
+          GITHUB_TOKEN: ${{ secrets.PUSH_TOKEN }}
+      - name: Branch protection ON
+        uses: octokit/request-action@v2.x
+        with:
+          route: PUT /repos/:repository/branches/master/protection
+          repository: ${{ github.repository }}
+          required_status_checks: |
+            strict: true
+            contexts:
+              - review
+          enforce_admins: |
+            null
+          required_pull_request_reviews: |
+            dismiss_stale_reviews: true
+            required_approving_review_count: 1
+          restrictions: | 
+            null 
+        env:
+          GITHUB_TOKEN: ${{ secrets.PUSH_TOKEN }}

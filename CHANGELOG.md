@@ -1,4 +1,4 @@
-#南邮本科生小程序代码更新日志
+# 南邮本科生小程序代码更新日志
 
 
 ## [0.0.4](https://github.com/Qingyou-Studio/NJUPT-Undergraduate-Miniprogram/compare/0.0.3...0.0.4) (2022-01-08)

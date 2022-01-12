@@ -72,7 +72,8 @@ const gitPush = (nowBranch) =>
         if (err) {
           handleErr(err, "git push发生错误");
         } else {
-          handleResolve(stdout, "git push行成功", resolve);
+          handleResolve(stdout, "git push执行成功", resolve);
+          log(`当前分支对应的远程仓库地址: https://github.com/Qingyou-Studio/NJUPT-Undergraduate-Miniprogram/tree/${nowBranch}`)
         }
       }
     );

@@ -1,9 +1,0 @@
-{
-  "pageName": "firstpage",
-  "scripts": {
-    "build": "build-scripts build",
-    "start": "build-scripts start --port 3337"
-  },
-  "license": "MIT",
-  "homepage": "https://unpkg.com/undefined@undefined/build/index.html"
-}

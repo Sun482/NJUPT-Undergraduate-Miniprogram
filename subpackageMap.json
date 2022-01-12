@@ -1,0 +1,10 @@
+{
+  "subpackages": {
+    "subpackage-1": [
+      "firstPage"
+    ]
+  },
+  "pages": {
+    "firstPage": "subpackage-1"
+  }
+}

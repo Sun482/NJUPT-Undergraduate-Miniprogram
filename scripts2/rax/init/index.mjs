@@ -14,12 +14,29 @@ const nowPages = subpackageMap.pages;
 let promptList = [
   {
     type: "list",
-    message: "新建页面时是否新建分包:",
-    name: "isCreateNewSubpackage",
-    choices: ["Yes", "No"],
+    message: "请选择使用的框架:",
+    name: "frame",
+    choices: ["Rax", "Taro"],
     loop: false,
   },
 ];
+
+const { frame } = await inquirer.prompt(promptList);
+
+if (frame === "Taro") {
+  log(chalk.red("暂时尚未支持该框架"));
+  process.exit(0);
+} else if (frame === "Rax") {
+  promptList = [
+    {
+      type: "list",
+      message: "新建页面时是否新建分包:",
+      name: "isCreateNewSubpackage",
+      choices: ["Yes", "No"],
+      loop: false,
+    },
+  ];
+}
 
 const { isCreateNewSubpackage } = await inquirer.prompt(promptList);
 

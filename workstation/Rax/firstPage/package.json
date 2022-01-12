@@ -1,5 +1,5 @@
 {
-  "pageName": "{{pageName}}",
+  "pageName": "firstPage",
   "scripts": {
     "build": "build-scripts build",
     "start": "build-scripts start"

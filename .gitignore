@@ -1,3 +1,4 @@
 dist
 **/node_modules/
 **/miniprogram_npm/
+**/build/wechat-miniprogram/

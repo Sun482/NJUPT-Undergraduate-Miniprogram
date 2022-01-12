@@ -4,6 +4,7 @@
   "nextVersion": "0.0.6",
   "scripts": {
     "init:rax": "node scripts/rax/init/index.mjs",
+    "delete:rax": "node scripts/rax/delete.mjs",
     "start:rax": "node scripts/rax/start/index.mjs",
     "build:rax": "node scripts/rax/build/index.mjs",
     "preinstall": "npx only-allow pnpm",
@@ -45,6 +46,5 @@
     "read-first-line": "^1.0.5",
     "stylelint": "^13.7.2",
     "uglify-js": "^3.14.5"
-  },
-  "license": "MIT"
+  }
 }

@@ -1,1 +1,1 @@
-<${pageName} />
+<{{pageName}} />

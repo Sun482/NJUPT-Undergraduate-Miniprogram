@@ -1,7 +1,7 @@
 import { createElement } from 'rax';
 
 const Index = () => {
-  return <>Hello World!</>
+  return <view>Hello World!</view>
 };
 
 export default Index;

@@ -2,6 +2,12 @@
   "data": [
     {
       "content": [
+        "重构init和build逻辑"
+      ],
+      "title": "2022-01-14 新版本(V0.0.7)"
+    },
+    {
+      "content": [
         "增加release更新说明"
       ],
       "title": "2022-01-08 新版本(V0.0.6)"

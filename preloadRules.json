@@ -1,0 +1,6 @@
+{
+  "firstPage": {
+    "network": "all",
+    "packages": ["subpackage-1"]
+  }
+}

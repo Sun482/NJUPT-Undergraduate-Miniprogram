@@ -1,6 +1,23 @@
 # 南邮本科生小程序代码更新日志
 
 
+## [0.0.8](https://github.com/Qingyou-Studio/NJUPT-Undergraduate-Miniprogram/compare/0.0.7...0.0.8) (2022-01-14)
+
+
+### Features
+* **依赖下载引擎:** 由于rax目前不支持pnpm, 依赖引擎改为yarn  @[Awen-hub](https://github.com/Awen-hub), 2022-01-14 ([4a0f391](https://github.com/Qingyou-Studio/NJUPT-Undergraduate-Miniprogram/commit/4a0f3913b982a098db9368aa02ad8aa6251f9add))
+
+### Perf
+* **项目启动逻辑:** 重构了项目启动方式  @[Awen-hub](https://github.com/Awen-hub), 2022-01-14 ([3f88614](https://github.com/Qingyou-Studio/NJUPT-Undergraduate-Miniprogram/commit/3f88614fa6d87c866659eef72e7e390a4da44e0f))
+
+### Others
+*  修改package.json和AppLog.json  @[Awen-hub](https://github.com/Awen-hub), 2022-01-14 ([ed72f3e](https://github.com/Qingyou-Studio/NJUPT-Undergraduate-Miniprogram/commit/ed72f3eef8d2d24e18ff6408b33f1633abe302c4))
+* **log:** 更新日志  @[Awen-hub](https://github.com/Awen-hub), 2022-01-14 ([099e639](https://github.com/Qingyou-Studio/NJUPT-Undergraduate-Miniprogram/commit/099e639eea592dada6b826dbe1381718899c0c79))
+
+
+
+
+
 ## [0.0.7](https://github.com/Qingyou-Studio/NJUPT-Undergraduate-Miniprogram/compare/0.0.6...0.0.7) (2022-01-14)
 
 

@@ -1,2 +1,2 @@
 本次更新内容如下: 
-* 增加release更新说明
+* 重构init和build逻辑

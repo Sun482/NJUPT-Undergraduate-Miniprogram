@@ -36,7 +36,7 @@ const getSubpackName = async (isCreateNewSubpackage) => {
         return false;
       }
       if (nowPages.hasOwnProperty(pageName)) {
-        log(chalk.red("\n该页面名字已存在与当前分包或其他分包，请重新输入"));
+        log(chalk.red("\n该页面名字已存在于当前分包或其他分包，请重新输入"));
         return false;
       }
       return true;
@@ -59,6 +59,9 @@ const getSubpackName = async (isCreateNewSubpackage) => {
             log(chalk.red("\n该分包名字已存在，请重新输入"));
             return false;
           }
+          if (subpackageName === "main") {
+            log(chalk.red("\n分包名字不能与主包(main)相同"));
+          }
           return true;
         },
       },
@@ -79,7 +82,7 @@ const getSubpackName = async (isCreateNewSubpackage) => {
     promptList = [
       {
         type: "list",
-        message: "请选择本次创建页面所属分包:",
+        message: "请选择本次创建页面所属分包(main为主分包):",
         name: "subpackageName",
         choices: subpackageChoices,
         loop: false,
@@ -138,7 +141,7 @@ const createRaxPage = async (pageName) => {
   }
 };
 
-const createMiniprogramPage = async (pageName) => {
+const createMiniprogramPage = async (pageName, nowPages) => {
   try {
     const templatePathPrefix = "scripts/rax/init/template";
     const [pageJS, pageJSON, pageWXML] = await Promise.all([
@@ -146,7 +149,8 @@ const createMiniprogramPage = async (pageName) => {
       readTemplate(pageName, `${templatePathPrefix}/page.json.txt`),
       readTemplate(pageName, `${templatePathPrefix}/page.wxml.txt`),
     ]);
-    const outputPathPrefix = `workstation/pages/${pageName}`;
+    const subpackageName = nowPages[pageName]
+    const outputPathPrefix = `workstation/pages/${subpackageName}/${pageName}`;
     await mkdir(outputPathPrefix, { recursive: true });
     await Promise.all([
       writeFile(`${outputPathPrefix}/index.js`, pageJS, { flag: "w+" }),
@@ -170,10 +174,11 @@ const linkDependencies = async (pageName) => {
   }
 }
 
-const updateAppJSON = async () => {
+const updateAppJSON = async (nowPages, pageName) => {
   try {
+    const subpackageName = nowPages[pageName]
     const appJSON = require("../../../workstation/app.json");
-    const pagePath = `pages/${pageName}/index`;
+    const pagePath = `pages/${subpackageName}/${pageName}/index`;
     if (!appJSON.pages.includes(pagePath)) {
       appJSON.pages.push(pagePath);
       await writeFile("workstation/app.json", JSON.stringify(appJSON, null, 2), {
@@ -201,10 +206,10 @@ const updateSubpackageMapJSON = async () => {
 
 await Promise.all([
   createRaxPage(pageName),
-  createMiniprogramPage(pageName),
+  createMiniprogramPage(pageName, nowPages),
 ]);
 
 await linkDependencies(pageName)
-await updateAppJSON()
+await updateAppJSON(nowPages, pageName)
 await updateSubpackageMapJSON()
 log(chalk.blue(`${pageName}创建成功`));

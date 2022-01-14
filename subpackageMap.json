@@ -1,10 +1,14 @@
 {
   "subpackages": {
-    "subpackage-1": [
+    "main": [
       "firstPage"
+    ],
+    "subpackage-1": [
+      "secondPage"
     ]
   },
   "pages": {
-    "firstPage": "subpackage-1"
+    "firstPage": "main",
+    "secondPage": "subpackage-1"
   }
 }

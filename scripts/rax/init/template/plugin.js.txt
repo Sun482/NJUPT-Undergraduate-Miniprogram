@@ -121,9 +121,6 @@ const findWXMLAndWXSSInFolder = (dirPath) => {
 };
 
 module.exports = ({ onHook }) => {
-  rm("build", { recursive: true, force: true }).catch((err) => {
-    handleError(err, "build文件夹删除失败");
-  });
   rm("es", { recursive: true, force: true }).catch((err) => {
     handleError(err, "es文件夹删除失败");
   });

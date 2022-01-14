@@ -14,7 +14,7 @@ const nowPages = subpackageMap.pages;
 const promptList = [
   {
     type: "input",
-    message: "请选择需要删除的页面:",
+    message: "请输入需要删除的页面:",
     name: "pageName",
     validate(pageName) {
       if (!nowPages.hasOwnProperty(pageName)) {
@@ -40,7 +40,7 @@ const deleteRaxPage = async (pageName) => {
     await rm(dirPath, { recursive: true, force: true });
     log(chalk.blue("删除Rax页面成功"));
   } catch (error) {
-    handleErr("删除Rax页面失败", error);
+    handleErr("删除Rax页面失败, 请检查当前是否有在控制台打开需要删除的目录, 如果有需先关闭再进行删除操作", error);
   }
 };
 
@@ -75,7 +75,7 @@ const updateSubpackageMapJSON = async (pageName) => {
     nowSubpackages[subpackageName] = nowSubpackages[subpackageName].filter(
       (name) => name !== pageName
     );
-    if (nowSubpackages[subpackageName].length === 0) {
+    if (nowSubpackages[subpackageName].length === 0 && subpackageName !== "main") {
       delete nowSubpackages[subpackageName]
     }
     await writeFile(
@@ -91,11 +91,9 @@ const updateSubpackageMapJSON = async (pageName) => {
   }
 };
 
-await Promise.all([
-  deleteRaxPage(pageName),
-  deleteMiniprogramPage(pageName),
-  updateAppJSON(pageName),
-  updateSubpackageMapJSON(pageName),
-]);
+await deleteRaxPage(pageName)
+await deleteMiniprogramPage(pageName)
+await updateAppJSON(pageName)
+await updateSubpackageMapJSON(pageName)
 
 log(chalk.blue(`${pageName}删除成功`))

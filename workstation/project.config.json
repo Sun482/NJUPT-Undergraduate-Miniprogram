@@ -1,74 +1,68 @@
 {
     "description": "项目配置文件",
     "packOptions": {
-        "ignore": []
+        "ignore": [
+            {
+                "type": "glob",
+                "value": "**/jsx2mp-runtime.ali.esm.js"
+            },
+            {
+                "type": "glob",
+                "value": "**/jsx2mp-runtime.bytedance.esm.js"
+            },
+            {
+                "type": "glob",
+                "value": "**/jsx2mp-runtime.quickapp.esm.js"
+            }
+        ]
     },
     "setting": {
-        "bundle": false,
-        "userConfirmedBundleSwitch": false,
         "urlCheck": true,
-        "scopeDataCheck": false,
-        "coverView": true,
         "es6": true,
-        "postcss": true,
-        "compileHotReLoad": false,
-        "lazyloadPlaceholderEnable": false,
-        "preloadBackgroundData": false,
-        "minified": true,
-        "autoAudits": false,
-        "newFeature": false,
-        "uglifyFileName": false,
-        "uploadWithSourceMap": true,
-        "useIsolateContext": true,
-        "nodeModules": false,
         "enhance": true,
+        "postcss": true,
+        "preloadBackgroundData": true,
+        "minified": true,
+        "newFeature": false,
+        "coverView": true,
+        "nodeModules": false,
+        "autoAudits": false,
+        "showShadowRootInWxmlPanel": true,
+        "scopeDataCheck": false,
+        "uglifyFileName": true,
+        "checkInvalidKey": true,
+        "checkSiteMap": true,
+        "uploadWithSourceMap": false,
+        "compileHotReLoad": true,
+        "lazyloadPlaceholderEnable": false,
         "useMultiFrameRuntime": true,
         "useApiHook": true,
         "useApiHostProcess": true,
-        "showShadowRootInWxmlPanel": true,
-        "packNpmManually": true,
-        "packNpmRelationList": [
-            {
-                "packageJsonPath": "./Rax/pages/firstpage/package.json",
-                "miniprogramNpmDistDir": "./Rax/pages/firstpage/"
-            }
-        ],
+        "babelSetting": {
+            "ignore": [],
+            "disablePlugins": [],
+            "outputPath": ""
+        },
         "enableEngineNative": false,
+        "useIsolateContext": false,
+        "userConfirmedBundleSwitch": false,
+        "packNpmManually": false,
+        "packNpmRelationList": [],
         "minifyWXSS": true,
-        "showES6CompileOption": false,
-        "minifyWXML": true
+        "disableUseStrict": false,
+        "minifyWXML": true,
+        "showES6CompileOption": true,
+        "useCompilerPlugins": false
     },
     "compileType": "miniprogram",
     "libVersion": "2.21.3",
-    "appid": "wxca27f7a10343f95d",
-    "projectname": "miniprogram-3",
+    "appid": "wxe74121410ae58054",
+    "projectname": "南京邮电大学本科生小程序4.0",
     "debugOptions": {
         "hidedInDevtools": []
     },
     "scripts": {},
-    "staticServerOptions": {
-        "baseURL": "",
-        "servePath": ""
-    },
-    "isGameTourist": false,
-    "condition": {
-        "search": {
-            "list": []
-        },
-        "conversation": {
-            "list": []
-        },
-        "game": {
-            "list": []
-        },
-        "plugin": {
-            "list": []
-        },
-        "gamePlugin": {
-            "list": []
-        },
-        "miniprogram": {
-            "list": []
-        }
-    }
+    "simulatorType": "wechat",
+    "simulatorPluginLibVersion": {},
+    "condition": {}
 }

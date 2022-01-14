@@ -1,16 +1,32 @@
-import { readdir } from "fs/promises";
-import runStartInRaxPage from "./utils/runStartInRaxPage.mjs";
+import { createRequire } from "module";
+import { spawn } from "child_process";
+import chalk from "chalk";
+const require = createRequire(import.meta.url);
+const { log } = console;
 
-console.log("正在启动");
-if (process.argv[2] !== undefined) {
-  const pageNames = process.argv[2].slice(1).split(",");
-  runStartInRaxPage(pageNames).then(() => {
-    console.log("启动完成");
-  });
-} else {
-  readdir("workstation/pages").then((pageNames) => {
-    runStartInRaxPage(pageNames).then(() => {
-      console.log("启动完成");
-    });
-  });
+const handleErr = (message, error) => {
+  log(chalk.red(message))
+  log(error)
+  process.exit(1)
 }
+
+const { pages } = require("../../../subpackageMap.json")
+const pagesList = Object.keys(pages)
+let port = 3333
+pagesList.forEach((pageName) => {
+  const projectPath = `workstation/Rax/${pageName}`
+  const ls = spawn(
+    process.platform === "win32" ? "yarn.cmd" : "yarn",
+    ["start", `--port=${port++}`],
+    { cwd: projectPath }
+  );
+  ls.stdout.on("data", (data) => {
+    log(`${data}`);
+  });
+  ls.stderr.on("data", (data) => {
+    log(`${data}`);
+  });
+  ls.on("error", (err) => {
+    handleErr(`${pageName}页面进程发生错误`, err);
+  });
+})

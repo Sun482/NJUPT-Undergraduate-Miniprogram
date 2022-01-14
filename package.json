@@ -6,6 +6,7 @@
     "init:rax": "node scripts/rax/init/index.mjs",
     "delete:rax": "node scripts/rax/delete/index.mjs",
     "build:rax": "node scripts/rax/build/index.mjs",
+    "start:rax": "node scripts/rax/start/index.mjs",
     "preinstall": "npx only-allow pnpm",
     "commit": "node scripts/git/commit.mjs",
     "push": "node scripts/git/push.mjs",

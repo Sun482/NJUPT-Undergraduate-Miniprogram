@@ -27,8 +27,7 @@ jobs:
       - name: Preinstall
         if: ${{steps.version.outputs.value != steps.nextVersion.outputs.value}}
         run: |
-          npm install pnpm -g
-          pnpm i
+          yarn
       - name: GitConfig
         if: ${{steps.version.outputs.value != steps.nextVersion.outputs.value}}
         run: |

@@ -1,6 +1,24 @@
 # 南邮本科生小程序代码更新日志
 
 
+## [0.0.7](https://github.com/Qingyou-Studio/NJUPT-Undergraduate-Miniprogram/compare/0.0.6...0.0.7) (2022-01-14)
+
+
+### Features
+* **git:** 代码提交成功后显示远程仓库分支地址  @[Awen-hub](https://github.com/Awen-hub), 2022-01-12 ([1cb05cc](https://github.com/Qingyou-Studio/NJUPT-Undergraduate-Miniprogram/commit/1cb05cc12bc64be0c8c744cf44044e177f6088b2))
+
+### Perf
+*  重构init和build逻辑  @[Awen-hub](https://github.com/Awen-hub), 2022-01-14 ([c60005f](https://github.com/Qingyou-Studio/NJUPT-Undergraduate-Miniprogram/commit/c60005f8a9d90381e4179fb1e2effb464e7e8263))
+*  重构创建页面逻辑和工作区目录结构  @[Awen-hub](https://github.com/Awen-hub), 2022-01-12 ([4e075e3](https://github.com/Qingyou-Studio/NJUPT-Undergraduate-Miniprogram/commit/4e075e3af464f0b053f3335ced250ce975d38eba))
+
+### Others
+*  修改package.json和AppLog.json  @[Awen-hub](https://github.com/Awen-hub), 2022-01-14 ([ed2a943](https://github.com/Qingyou-Studio/NJUPT-Undergraduate-Miniprogram/commit/ed2a943d4950559d9d07ff30a1a77cb61db179a4))
+* **log:** 更新日志  @[Awen-hub](https://github.com/Awen-hub), 2022-01-08 ([0fd7951](https://github.com/Qingyou-Studio/NJUPT-Undergraduate-Miniprogram/commit/0fd79517bcaa88a90556d50c6e0057ffc49605c0))
+
+
+
+
+
 ## [0.0.6](https://github.com/Qingyou-Studio/NJUPT-Undergraduate-Miniprogram/compare/0.0.5...0.0.6) (2022-01-08)
 
 

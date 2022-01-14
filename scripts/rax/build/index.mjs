@@ -37,7 +37,7 @@ const createSubpackageAndPageDir = async (nowSubpackages) => {
         const pageList = nowSubpackages[subpackageName];
         await Promise.all(
           pageList.map(async (pageName) => {
-            await mkdir(`dist/${subpackageName}/${pageName}`, {
+            await mkdir(`dist/pages/${subpackageName}/${pageName}`, {
               recursive: true,
             });
           })
@@ -78,7 +78,7 @@ const generateBasicPageFiles = async (nowPages) => {
               fileContent = compressJS(fileContent);
             }
             await writeFile(
-              `dist/${subpackageName}/${pageName}/${fileName}`,
+              `dist/pages/${subpackageName}/${pageName}/${fileName}`,
               fileContent,
               { flag: "w+" }
             );
@@ -112,7 +112,7 @@ const formatPreloadRulesJSON = (nowPages, preloadRulesJSON) => {
   const newPreloadRulesObj = {};
   ruleKeys.forEach((pageName) => {
     const subpackageName = nowPages[pageName];
-    newPreloadRulesObj[`${subpackageName}/${pageName}/index`] =
+    newPreloadRulesObj[`pages/${subpackageName}/${pageName}/index`] =
       preloadRulesJSON[pageName];
   });
   return newPreloadRulesObj;
@@ -127,11 +127,11 @@ const generateAppJSON = async (nowSubpackages, nowPages, preloadRulesJSON) => {
       const pageList = nowSubpackages[subpackageName];
       if (subpackageName === "main") {
         pageList.forEach((pageName) => {
-          pages.push(`${subpackageName}/${pageName}/index`);
+          pages.push(`pages/${subpackageName}/${pageName}/index`);
         });
       } else {
         const subpackageItem = {
-          root: subpackageName,
+          root: `pages/${subpackageName}`,
           name: subpackageName,
           pages: [],
         };
@@ -147,7 +147,7 @@ const generateAppJSON = async (nowSubpackages, nowPages, preloadRulesJSON) => {
     }
     const preloadRule = formatPreloadRulesJSON(nowPages, preloadRulesJSON);
     if (Object.keys(preloadRule).length !== 0) {
-      appJSON.preloadRule = preloadRule
+      appJSON.preloadRule = preloadRule;
     }
     await writeFile("dist/app.json", JSON.stringify(appJSON), { flag: "w+" });
   } catch (error) {
@@ -184,7 +184,7 @@ const moveProduction = async (pageName, subpackageName) => {
   try {
     await rename(
       `workstation/Rax/${pageName}/dist/wechat-miniprogram`,
-      `dist/${subpackageName}/${pageName}/components`
+      `dist/pages/${subpackageName}/${pageName}/components`
     );
     await rm(`workstation/Rax/${pageName}/dist`, {
       recursive: true,
@@ -192,7 +192,7 @@ const moveProduction = async (pageName, subpackageName) => {
     });
   } catch (error) {
     handleErr(
-      "移动构建产物时出错(观察是否在控制台中打开了某个页面, 如果有请先关闭)"
+      "移动构建产物时出错(观察是否在控制台中打开了某个页面, 如果有请先关闭)", error
     );
   }
 };
@@ -222,9 +222,21 @@ const packNpmManually = async (packageJsonPath, miniprogramNpmDistDir) => {
   });
 };
 
+const packGlobalNpm = async (packageJSON, independentDependenciesSet) => {
+  const { dependencies } = packageJSON;
+  independentDependenciesSet.forEach((denpendency) => {
+    delete dependencies[denpendency];
+  });
+  await writeFile("package.json", JSON.stringify(packageJSON), {
+    flag: "w+",
+  });
+  await packNpmManually("package.json", "dist")
+};
+
 const buildNpm = async () => {
+  const packageJSON = require("../../../package.json");
+  const copyPackageJSON = JSON.parse(JSON.stringify(packageJSON));
   try {
-    const originPackageJSON = require("../../../package.json");
     const dependenciesMapJSON = require("../../../dependenciesMap.json");
     const subpackageList = Object.keys(dependenciesMapJSON);
     const independentDependenciesSet = new Set();
@@ -250,21 +262,20 @@ const buildNpm = async () => {
         await writeFile("package.json", JSON.stringify(debpendenciesObj), {
           flag: "w+",
         });
-        await packNpmManually("package.json", `dist/${subpackageName}`);
+        await packNpmManually("package.json", `dist/pages/${subpackageName}`);
       })
     );
-    await writeFile(
-      "package.json",
-      JSON.stringify(originPackageJSON, null, 2),
-      {
-        flag: "w+",
-      }
-    );
+    await packGlobalNpm(packageJSON, independentDependenciesSet);
+    await writeFile("package.json", JSON.stringify(copyPackageJSON, null, 2), {
+      flag: "w+",
+    });
   } catch (error) {
+    await writeFile("package.json", JSON.stringify(copyPackageJSON, null, 2), {
+      flag: "w+",
+    });
     handleErr("构建npm出错", error);
   }
 };
 
 await buildNpm();
 log(chalk.blue("npm构建完成"));
-

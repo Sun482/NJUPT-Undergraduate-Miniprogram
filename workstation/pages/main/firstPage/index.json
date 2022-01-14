@@ -1,5 +1,5 @@
 {
   "usingComponents": {
-    "firstPage": "../../../Rax/firstPage/build/wechat-miniprogram/components/Target"
+    "firstPage": "../../../Rax/firstPage/build/wechat-miniprogram/components/Target/index"
   }
 }

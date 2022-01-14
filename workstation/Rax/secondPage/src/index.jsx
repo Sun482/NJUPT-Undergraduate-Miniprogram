@@ -2,7 +2,6 @@ import { createElement } from 'rax';
 
 const Index = () => {
   const toFirstPage = () => {
-    console.log("111");
     wx.navigateTo({
       url: "/pages/main/firstPage/index"
     })

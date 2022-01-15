@@ -3,3 +3,4 @@ dist
 **/miniprogram_npm/
 **/build/wechat-miniprogram/
 *.log
+Release.md

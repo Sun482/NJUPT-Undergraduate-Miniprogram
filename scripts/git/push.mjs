@@ -67,7 +67,7 @@ const getBranch = () =>
 const gitPush = (nowBranch) =>
   new Promise((resolve) => {
     exec(
-      `git push --set-upstream origin ${nowBranch} --no-verify --tags`,
+      `git push --set-upstream origin ${nowBranch} --no-verify`,
       (err, stdout) => {
         if (err) {
           handleErr(err, "git push发生错误");
@@ -82,7 +82,7 @@ const gitPush = (nowBranch) =>
 let promptList = [
   {
     type: "list",
-    message: "是否更新版本号:",
+    message: `是否更新版本号(当前版本号${lastVersion}，如果版本号与master不一致，需先拉取远程master代码并进行合并):`,
     name: "isChangeVersion",
     choices: ["Yes", "No"],
     loop: false,
@@ -138,27 +138,38 @@ if (isChangeVersion === "Yes") {
     getLog(resolve);
   });
 
-  let releaseLog = `本次更新内容如下: \n`
-  logList.forEach((content) => {
-    releaseLog += `* ${content}\n`;
-  });
-
-  await writeFile("Release.md", releaseLog, { flag: "w+"})
   const packageJSON = require("../../package");
   packageJSON.nextVersion = versionNumber;
   await writeFile("package.json", JSON.stringify(packageJSON, null, 2), {
     flag: "w+",
   });
+  log(chalk.blue("成功更新package.json"))
 
   const AppLog = require("../../AppLog");
-  const time = dayjs.tz(dayjs(), "Asia/Shanghai").format("YYYY-MM-DD");
-  AppLog.data.unshift({
-    content: logList,
-    title: `${time} 新版本(V${versionNumber})`,
-  });
+  const checkHasVersion = (AppLog) => {
+    const data = AppLog.data[0]
+    if (data.version === versionNumber) {
+      return true
+    } else {
+      return false
+    }
+  }
+  const hasVersion = checkHasVersion(AppLog)
+  if (!hasVersion) {
+    const time = dayjs.tz(dayjs(), "Asia/Shanghai").format("YYYY-MM-DD");
+    AppLog.data.unshift({
+      content: logList,
+      title: `${time} 新版本(V${versionNumber})`,
+      version: `${versionNumber}`
+    });
+  } else {
+    AppLog.data[0].content.push(...logList)
+  }
   await writeFile("AppLog.json", JSON.stringify(AppLog, null, 2), {
     flag: "w+",
   });
+
+  log(chalk.blue("成功更新AppLog.json"))
 
   await gitAdd();
 

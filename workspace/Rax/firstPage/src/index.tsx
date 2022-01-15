@@ -1,8 +1,12 @@
 import { createElement } from 'rax';
 import './index.less'
 
-const Index = () => {
+interface IndexProps {
+  name: string
+}
+const Index = (props: IndexProps) => {
   const toSecondPage = () => {
+    //@ts-ignore
     wx.navigateTo({
       url: "/pages/subpackage-1/secondPage/index"
     })

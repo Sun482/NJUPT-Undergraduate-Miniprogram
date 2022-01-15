@@ -12,7 +12,7 @@ $ yarn
 ### 创建页面
 
 ```bash
-$ yarn init
+$ yarn init:rax
 ```
 
 ### 删除页面

@@ -12,7 +12,7 @@ const subpackageMap = require("../../../subpackageMap.json");
 const nowSubpackages = subpackageMap.subpackages;
 const nowPages = subpackageMap.pages;
 
-const appJSON = require("../../../workstation/app.json");
+const appJSON = require("../../../workspace/app.json");
 const preloadRulesJSON = require("../../../preloadRules.json");
 
 const handleErr = (message, error) => {
@@ -61,7 +61,7 @@ const generateBasicPageFiles = async (nowPages) => {
     await Promise.all(
       pageList.map(async (pageName) => {
         const subpackageName = nowPages[pageName];
-        const originPathPrefix = `workstation/pages/${subpackageName}/${pageName}`;
+        const originPathPrefix = `workspace/pages/${subpackageName}/${pageName}`;
         const fileLists = await readdir(originPathPrefix);
         await Promise.all(
           fileLists.map(async (fileName) => {
@@ -96,7 +96,7 @@ log(chalk.blue("成功生成页面基础文件"));
 
 const generateAppJS = async () => {
   try {
-    let appJS = await readFile("workstation/app.js", "utf-8");
+    let appJS = await readFile("workspace/app.js", "utf-8");
     appJS = compressJS(appJS);
     await writeFile("dist/app.js", appJS, { flag: "w+" });
   } catch (error) {
@@ -159,7 +159,7 @@ await generateAppJSON(nowSubpackages, nowPages, preloadRulesJSON);
 log(chalk.blue("成功生成app.json"));
 
 const generateProjectConfigJSON = async () => {
-  const projectConfigJSON = require("../../../workstation/project.config.json");
+  const projectConfigJSON = require("../../../workspace/project.config.json");
   await writeFile("dist/project.config.json", compressJSON(projectConfigJSON), {
     flag: "w+",
   });
@@ -171,7 +171,7 @@ log(chalk.blue("成功生成project.config.json"));
 const runBuildInRaxPage = (pageName) =>
   new Promise((resolve) => {
     log(chalk.blue(`${pageName}开始构建`));
-    exec("yarn build", { cwd: `workstation/Rax/${pageName}` }, (error) => {
+    exec("yarn build", { cwd: `workspace/Rax/${pageName}` }, (error) => {
       if (error) {
         handleErr(`构建${pageName}时出错`, error);
       }
@@ -183,10 +183,10 @@ const runBuildInRaxPage = (pageName) =>
 const moveProduction = async (pageName, subpackageName) => {
   try {
     await rename(
-      `workstation/Rax/${pageName}/dist/wechat-miniprogram`,
+      `workspace/Rax/${pageName}/dist/wechat-miniprogram`,
       `dist/pages/${subpackageName}/${pageName}/components`
     );
-    await rm(`workstation/Rax/${pageName}/dist`, {
+    await rm(`workspace/Rax/${pageName}/dist`, {
       recursive: true,
       force: true,
     });

@@ -3,7 +3,7 @@
   "version": "0.0.10",
   "nextVersion": "0.0.10",
   "scripts": {
-    "init": "node scripts/rax/init/index.mjs",
+    "init:rax": "node scripts/rax/init/index.mjs",
     "delete": "node scripts/rax/delete/index.mjs",
     "build": "node scripts/rax/build/index.mjs",
     "start": "node scripts/rax/start/index.mjs",

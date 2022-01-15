@@ -127,7 +127,7 @@ const createRaxPage = async (pageName) => {
       readTemplate(pageName, `${templatePathPrefix}/package.json.txt`),
       readTemplate(pageName, `${templatePathPrefix}/plugin.js.txt`),
     ]);
-    const outputPathPrefix = `workstation/Rax/${pageName}`;
+    const outputPathPrefix = `workspace/Rax/${pageName}`;
     await mkdir(`${outputPathPrefix}/src`, { recursive: true });
     await Promise.all([
       writeFile(`${outputPathPrefix}/src/index.jsx`, indexJSX, { flag: "w+" }),
@@ -150,7 +150,7 @@ const createMiniprogramPage = async (pageName, nowPages) => {
       readTemplate(pageName, `${templatePathPrefix}/page.wxml.txt`),
     ]);
     const subpackageName = nowPages[pageName]
-    const outputPathPrefix = `workstation/pages/${subpackageName}/${pageName}`;
+    const outputPathPrefix = `workspace/pages/${subpackageName}/${pageName}`;
     await mkdir(outputPathPrefix, { recursive: true });
     await Promise.all([
       writeFile(`${outputPathPrefix}/index.js`, pageJS, { flag: "w+" }),
@@ -166,7 +166,7 @@ const createMiniprogramPage = async (pageName, nowPages) => {
 const linkDependencies = async (pageName) => {
   try {
     const originPath = path.resolve("node_modules")
-    const targetPath = path.resolve(`workstation/Rax/${pageName}/node_modules`)
+    const targetPath = path.resolve(`workspace/Rax/${pageName}/node_modules`)
     await symlink(originPath, targetPath, "junction");
     log(chalk.blue("依赖创建成功"))
   } catch (error) {
@@ -177,11 +177,11 @@ const linkDependencies = async (pageName) => {
 const updateAppJSON = async (nowPages, pageName) => {
   try {
     const subpackageName = nowPages[pageName]
-    const appJSON = require("../../../workstation/app.json");
+    const appJSON = require("../../../workspace/app.json");
     const pagePath = `pages/${subpackageName}/${pageName}/index`;
     if (!appJSON.pages.includes(pagePath)) {
       appJSON.pages.push(pagePath);
-      await writeFile("workstation/app.json", JSON.stringify(appJSON, null, 2), {
+      await writeFile("workspace/app.json", JSON.stringify(appJSON, null, 2), {
         flag: "w+",
       });
     }

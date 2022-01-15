@@ -1,6 +1,25 @@
 # 南邮本科生小程序代码更新日志
 
 
+## [0.0.9](https://github.com/Qingyou-Studio/NJUPT-Undergraduate-Miniprogram/compare/0.0.8...0.0.9) (2022-01-14)
+
+
+### Bug Fixes
+*  修复页面路径错误和依赖单独构建问题  @[Awen-hub](https://github.com/Awen-hub), 2022-01-14 ([3e0cfaf](https://github.com/Qingyou-Studio/NJUPT-Undergraduate-Miniprogram/commit/3e0cfafe4e5991f9c8f7d1bb48d8d12b9560339b))
+
+### Perf
+* **readme:** 更新readme  @[Awen-hub](https://github.com/Awen-hub), 2022-01-14 ([d9d6a16](https://github.com/Qingyou-Studio/NJUPT-Undergraduate-Miniprogram/commit/d9d6a163e6bb74f388a2031663bb92388e370607))
+* **readme:** 更新readme  @[Awen-hub](https://github.com/Awen-hub), 2022-01-14 ([464c32f](https://github.com/Qingyou-Studio/NJUPT-Undergraduate-Miniprogram/commit/464c32f32ca1da5730ab1ddae7ad37b5e7a697f4))
+* **readme:** 增加readme  @[Awen-hub](https://github.com/Awen-hub), 2022-01-14 ([adc308c](https://github.com/Qingyou-Studio/NJUPT-Undergraduate-Miniprogram/commit/adc308cb14d4b8fd116f3f803c3fff371bc333fd))
+
+### Others
+*  修改package.json和AppLog.json  @[Awen-hub](https://github.com/Awen-hub), 2022-01-14 ([5cc1bb1](https://github.com/Qingyou-Studio/NJUPT-Undergraduate-Miniprogram/commit/5cc1bb1ed3c660d27ed07a3e03743c5d036ba8f6))
+* **log:** 更新日志  @[Awen-hub](https://github.com/Awen-hub), 2022-01-14 ([a51f083](https://github.com/Qingyou-Studio/NJUPT-Undergraduate-Miniprogram/commit/a51f083a822b478257f0a08925fd1307c93a463e))
+
+
+
+
+
 ## [0.0.8](https://github.com/Qingyou-Studio/NJUPT-Undergraduate-Miniprogram/compare/0.0.7...0.0.8) (2022-01-14)
 
 

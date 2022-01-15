@@ -2,8 +2,8 @@
 
 ### 依赖安装
 
-> node >= 16.13.1
-> yarn >= 1.22.15 (本项目依赖安装暂时仅支持yarn, 使用其他包管理器安装会导致不可预知错误)
+> node >= 16 (低于16版本会有不可预知问题，运行项目前应先升级node版本)
+> yarn >= 1 <2 (本项目依赖安装暂时仅支持yarn, 使用其他包管理器安装会导致不可预知错误, 注意不要使用yarn2)
 
 ```bash
 $ yarn
@@ -66,6 +66,7 @@ tips：
 
 ### 分包预加载
 [微信小程序分包预加载说明](https://developers.weixin.qq.com/miniprogram/dev/framework/subpackages/preload.html)
+
 与原生小程序配置方法不同，在本项目中使用分包预加载示例如下：
 在根路径下的preloadRules.json中编辑
 ```

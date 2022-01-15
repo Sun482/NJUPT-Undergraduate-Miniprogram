@@ -82,7 +82,7 @@ const gitPush = (nowBranch) =>
 let promptList = [
   {
     type: "list",
-    message: `是否更新版本号(当前版本号${lastVersion}):`,
+    message: `是否更新版本号(当前版本号${lastVersion}，如果版本号与master不一致，需先拉取远程master代码并进行合并):`,
     name: "isChangeVersion",
     choices: ["Yes", "No"],
     loop: false,

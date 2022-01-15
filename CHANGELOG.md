@@ -1,6 +1,22 @@
 # 南邮本科生小程序代码更新日志
 
 
+## [0.0.10](https://github.com/Qingyou-Studio/NJUPT-Undergraduate-Miniprogram/compare/0.0.9...0.0.10) (2022-01-15)
+
+
+### Perf
+* **readme.md:** 修改readme.md  @[Awen-hub](https://github.com/Awen-hub), 2022-01-15 ([e5febd6](https://github.com/Qingyou-Studio/NJUPT-Undergraduate-Miniprogram/commit/e5febd61472a0d689590e63c43f6d7a2ff26209c))
+* **代码提交和发版:** 优化代码提交和发版流程  @[Awen-hub](https://github.com/Awen-hub), 2022-01-15 ([4165d23](https://github.com/Qingyou-Studio/NJUPT-Undergraduate-Miniprogram/commit/4165d237f83307fed5a666ad25158994a085240c))
+* **engines:** 限制项目所用包管理器为yarn  @[Awen-hub](https://github.com/Awen-hub), 2022-01-15 ([0fc138a](https://github.com/Qingyou-Studio/NJUPT-Undergraduate-Miniprogram/commit/0fc138aa2369c5adf70394061a0d845194d07a2e))
+
+### Others
+*  修改package.json和AppLog.json  @[Awen-hub](https://github.com/Awen-hub), 2022-01-15 ([e303d53](https://github.com/Qingyou-Studio/NJUPT-Undergraduate-Miniprogram/commit/e303d53b6b48e636f510fd585464b5f93e93f1f1))
+* **log:** 更新日志  @[Awen-hub](https://github.com/Awen-hub), 2022-01-14 ([88eeebc](https://github.com/Qingyou-Studio/NJUPT-Undergraduate-Miniprogram/commit/88eeebc2cdccf8ec768ed55cf3a2bd8721739887))
+
+
+
+
+
 ## [0.0.9](https://github.com/Qingyou-Studio/NJUPT-Undergraduate-Miniprogram/compare/0.0.8...0.0.9) (2022-01-14)
 
 

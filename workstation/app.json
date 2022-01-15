@@ -1,7 +1,0 @@
-{
-    "pages": [
-        "pages/main/firstPage/index",
-        "pages/subpackage-1/secondPage/index"
-    ],
-    "sitemapLocation": "sitemap.json"
-}

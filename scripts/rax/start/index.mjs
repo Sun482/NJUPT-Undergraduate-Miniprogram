@@ -17,16 +17,16 @@ const pagesList = Object.keys(pages);
 const linkDependencies = async (pagesList) => {
   try {
     const originPath = path.resolve("node_modules");
-    await rm("workstation/node_modules", { recursive: true, force: true });
-    await symlink(originPath, "workstation/node_modules", "junction");
+    await rm("workspace/node_modules", { recursive: true, force: true });
+    await symlink(originPath, "workspace/node_modules", "junction");
     await Promise.all(
       pagesList.map(async (pageName) => {
-        await rm(`workstation/Rax/${pageName}/node_modules`, {
+        await rm(`workspace/Rax/${pageName}/node_modules`, {
           recursive: true,
           force: true,
         });
         const targetPath = path.resolve(
-          `workstation/Rax/${pageName}/node_modules`
+          `workspace/Rax/${pageName}/node_modules`
         );
         await symlink(originPath, targetPath, "junction");
       })
@@ -41,7 +41,7 @@ await linkDependencies(pagesList);
 
 let port = 3333;
 pagesList.forEach((pageName) => {
-  const projectPath = `workstation/Rax/${pageName}`;
+  const projectPath = `workspace/Rax/${pageName}`;
   const ls = spawn(
     process.platform === "win32" ? "yarn.cmd" : "yarn",
     ["start", `--port=${port++}`],

@@ -42,15 +42,12 @@ const gitAdd = () =>
 
 const gitCommit = () =>
   new Promise((resolve) => {
-    exec(
-      `git commit -m "misc: 修改package.json和AppLog.json" -n`,
-      (err, stdout) => {
-        if (err) {
-          handleErr(err, "git commit执行出错");
-        }
-        handleResolve(stdout, "git commit执行成功", resolve);
+    exec(`git commit -m "misc: 修改package.json和AppLog.json" -n`, (err, stdout) => {
+      if (err) {
+        handleErr(err, "git commit执行出错");
       }
-    );
+      handleResolve(stdout, "git commit执行成功", resolve);
+    });
   });
 
 const getBranch = () =>
@@ -66,17 +63,14 @@ const getBranch = () =>
 
 const gitPush = (nowBranch) =>
   new Promise((resolve) => {
-    exec(
-      `git push --set-upstream origin ${nowBranch} --no-verify`,
-      (err, stdout) => {
-        if (err) {
-          handleErr(err, "git push发生错误");
-        } else {
-          handleResolve(stdout, "git push执行成功", resolve);
-          log(`当前分支对应的远程仓库地址: https://github.com/Qingyou-Studio/NJUPT-Undergraduate-Miniprogram/tree/${nowBranch}`)
-        }
+    exec(`git push --set-upstream origin ${nowBranch} --no-verify`, (err, stdout) => {
+      if (err) {
+        handleErr(err, "git push发生错误");
+      } else {
+        handleResolve(stdout, "git push执行成功", resolve);
+        log(`当前分支对应的远程仓库地址: https://github.com/Qingyou-Studio/NJUPT-Undergraduate-Miniprogram/tree/${nowBranch}`);
       }
-    );
+    });
   });
 
 let promptList = [
@@ -85,8 +79,8 @@ let promptList = [
     message: `是否更新版本号(当前版本号${lastVersion}，如果版本号与master不一致，需先拉取远程master代码并进行合并):`,
     name: "isChangeVersion",
     choices: ["Yes", "No"],
-    loop: false,
-  },
+    loop: false
+  }
 ];
 
 const { isChangeVersion } = await inquirer.prompt(promptList);
@@ -111,16 +105,16 @@ if (isChangeVersion === "Yes") {
           return false;
         }
         return true;
-      },
-    },
+      }
+    }
   ];
   const { versionNumber } = await inquirer.prompt(promptList);
   promptList = [
     {
       type: "input",
       message: `请填写更新日志(按一次回车键换行, 连续按两次回车键结束填写)：`,
-      name: "logContent",
-    },
+      name: "logContent"
+    }
   ];
 
   const logList = [];
@@ -141,20 +135,20 @@ if (isChangeVersion === "Yes") {
   const packageJSON = require("../../package");
   packageJSON.nextVersion = versionNumber;
   await writeFile("package.json", JSON.stringify(packageJSON, null, 2), {
-    flag: "w+",
+    flag: "w+"
   });
-  log(chalk.blue("成功更新package.json"))
+  log(chalk.blue("成功更新package.json"));
 
   const AppLog = require("../../AppLog");
   const checkHasVersion = (AppLog) => {
-    const data = AppLog.data[0]
+    const data = AppLog.data[0];
     if (data.version === versionNumber) {
-      return true
+      return true;
     } else {
-      return false
+      return false;
     }
-  }
-  const hasVersion = checkHasVersion(AppLog)
+  };
+  const hasVersion = checkHasVersion(AppLog);
   if (!hasVersion) {
     const time = dayjs.tz(dayjs(), "Asia/Shanghai").format("YYYY-MM-DD");
     AppLog.data.unshift({
@@ -163,13 +157,13 @@ if (isChangeVersion === "Yes") {
       version: `${versionNumber}`
     });
   } else {
-    AppLog.data[0].content.push(...logList)
+    AppLog.data[0].content.push(...logList);
   }
   await writeFile("AppLog.json", JSON.stringify(AppLog, null, 2), {
-    flag: "w+",
+    flag: "w+"
   });
 
-  log(chalk.blue("成功更新AppLog.json"))
+  log(chalk.blue("成功更新AppLog.json"));
 
   await gitAdd();
 

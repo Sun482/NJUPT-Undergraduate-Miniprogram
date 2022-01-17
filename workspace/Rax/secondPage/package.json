@@ -3,5 +3,6 @@
   "scripts": {
     "build": "build-scripts build",
     "start": "build-scripts start"
-  }
+  },
+  "homepage": "https://unpkg.com/undefined@undefined/build/index.html"
 }

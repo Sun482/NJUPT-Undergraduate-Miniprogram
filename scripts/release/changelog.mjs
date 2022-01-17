@@ -65,7 +65,7 @@ const logCollection = {
   featContentList: [],
   fixContentList: [],
   perfContentList: [],
-  othersContentList: [],
+  othersContentList: []
 };
 
 await gitTag();
@@ -73,8 +73,7 @@ const gitlogList = await getGitLogList();
 
 gitlogList.forEach((logContent) => {
   try {
-    const [author, email, date, description, hash, shortHash] =
-      logContent.split(splitSymbol);
+    const [author, email, date, description, hash, shortHash] = logContent.split(splitSymbol);
     const { type, scope, subject } = parseGitCommit(description);
     switch (type) {
       case "feat":
@@ -86,7 +85,7 @@ gitlogList.forEach((logContent) => {
           scope,
           subject,
           hash,
-          shortHash,
+          shortHash
         });
         break;
       case "refactor":
@@ -103,7 +102,7 @@ gitlogList.forEach((logContent) => {
           scope,
           subject,
           hash,
-          shortHash,
+          shortHash
         });
         break;
       case "misc":
@@ -114,7 +113,7 @@ gitlogList.forEach((logContent) => {
           scope,
           subject,
           hash,
-          shortHash,
+          shortHash
         });
         break;
     }
@@ -125,8 +124,7 @@ const time = dayjs.tz(dayjs(), "Asia/Shanghai").format("YYYY-MM-DD");
 const currentVersionTitle = `\n## [${nextVersion}](https://github.com/Qingyou-Studio/NJUPT-Undergraduate-Miniprogram/compare/${version}...${nextVersion}) (${time})\n`;
 const changelogTitle = await readFirstLine("CHANGELOG.md");
 
-const { featContentList, fixContentList, perfContentList, othersContentList } =
-  logCollection;
+const { featContentList, fixContentList, perfContentList, othersContentList } = logCollection;
 let changeLogStr = `${changelogTitle}\n\n${currentVersionTitle}\n`;
 
 const addChangeLogItem = (content) => {
@@ -149,7 +147,7 @@ generateChangeLogWithLogList(othersContentList, `\n### Others\n`);
 
 const beforeChangeLog = (
   await readFile("CHANGELOG.md", {
-    encoding: "utf-8",
+    encoding: "utf-8"
   })
 ).split(changelogTitle)[1];
 

@@ -16,7 +16,7 @@ if (version === nextVersion) {
 packageJSON.version = nextVersion;
 
 await writeFile("package.json", JSON.stringify(packageJSON, null, 2), {
-  flag: "w+",
+  flag: "w+"
 });
 
 log(chalk.blue("package.json更新成功"));

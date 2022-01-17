@@ -5,7 +5,8 @@ module.exports = {
       "error",
       {
         endOfLine: "auto",
-        singleQuote: false
+        singleQuote: false,
+        semi: true
       }
     ],
     "no-console": "off",
@@ -13,4 +14,4 @@ module.exports = {
   },
   parser: "@typescript-eslint/parser",
   plugins: ["@typescript-eslint"]
-}
+};

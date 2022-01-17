@@ -1,9 +1,10 @@
 on:
   push:
     branches:
-      - "!(master)"
+      - "**"
+      - "!master"
 jobs:
-  release:
+  lint:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2

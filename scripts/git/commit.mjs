@@ -105,10 +105,12 @@ const gitCommit = (type, scope, subject) =>
 
 const { type, scope, subject } = await inquirer.prompt(promptList);
 
-await gitAdd();
-
+log(chalk.blue("开始执行代码格式化"));
 await formatFiles();
 
+log(chalk.blue("开始执行eslint检查"));
 await lintFiles();
+
+await gitAdd();
 
 await gitCommit(type, scope, subject);

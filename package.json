@@ -26,7 +26,9 @@
     "pnpm": "本项目仅支持yarn作为包管理器，请使用yarn 1.x安装依赖"
   },
   "dependencies": {
-    "jsx2mp-runtime": "^0.4.8"
+    "jsx2mp-runtime": "^0.4.8",
+    "rax": "^1.2.2",
+    "wx-axios": "^0.0.7"
   },
   "peerDependencies": {
     "jsx2mp-runtime": "^0.4.8"

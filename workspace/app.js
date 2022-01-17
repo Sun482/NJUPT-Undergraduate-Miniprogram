@@ -2,5 +2,10 @@ App({
   onLaunch() {},
   onShow() {},
   onHide() {},
-  globalData: {},
+  globalData: {
+    a: 1
+  },
+  b: {
+    c: 1
+  }
 });

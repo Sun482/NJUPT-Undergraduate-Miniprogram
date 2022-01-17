@@ -33,7 +33,7 @@
     "checkInvalidKey": true,
     "checkSiteMap": true,
     "uploadWithSourceMap": false,
-    "compileHotReLoad": true,
+    "compileHotReLoad": false,
     "lazyloadPlaceholderEnable": false,
     "useMultiFrameRuntime": true,
     "useApiHook": true,
@@ -43,7 +43,6 @@
       "disablePlugins": [],
       "outputPath": ""
     },
-    "enableEngineNative": false,
     "useIsolateContext": false,
     "userConfirmedBundleSwitch": false,
     "packNpmManually": false,
@@ -52,11 +51,12 @@
     "disableUseStrict": false,
     "minifyWXML": true,
     "showES6CompileOption": true,
-    "useCompilerPlugins": false
+    "useCompilerPlugins": false,
+    "ignoreUploadUnusedFiles": true
   },
   "compileType": "miniprogram",
   "libVersion": "2.21.3",
-  "appid": "wxe74121410ae58054",
+  "appid": "wxa9abf43f10a7bdb0",
   "projectname": "%E5%8D%97%E4%BA%AC%E9%82%AE%E7%94%B5%E5%A4%A7%E5%AD%A6%E6%9C%AC%E7%A7%91%E7%94%9F%E5%B0%8F%E7%A8%8B%E5%BA%8F4.0",
   "debugOptions": {
     "hidedInDevtools": []

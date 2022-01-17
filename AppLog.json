@@ -2,6 +2,13 @@
   "data": [
     {
       "content": [
+        "增加对eslint、prettier、typescript的支持"
+      ],
+      "title": "2022-01-17 新版本(V0.0.11)",
+      "version": "0.0.11"
+    },
+    {
+      "content": [
         "优化发版流程"
       ],
       "title": "2022-01-15 新版本(V0.0.10)",

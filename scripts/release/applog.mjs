@@ -27,7 +27,7 @@ currentAppLogList.forEach((content) => {
 
 const beforeChangeLog = (
   await readFile("AppLog.md", {
-    encoding: "utf-8",
+    encoding: "utf-8"
   })
 ).split(applogTitle)[1];
 
@@ -36,9 +36,9 @@ applogStr += `\n\n` + beforeChangeLog;
 await writeFile("AppLog.md", applogStr, { flag: "w+" });
 log(chalk.blue("App日志写入成功"));
 
-let releaseLog = `本次更新内容如下: \n`
+let releaseLog = `本次更新内容如下: \n`;
 currentAppLogList.forEach((content) => {
   releaseLog += `* ${content}\n`;
 });
-await writeFile("Release.md", releaseLog, { flag: "w+"})
+await writeFile("Release.md", releaseLog, { flag: "w+" });
 log(chalk.blue("Release日志写入成功"));

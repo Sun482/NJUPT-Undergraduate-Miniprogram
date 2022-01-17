@@ -22,8 +22,8 @@ const promptList = [
         return false;
       }
       return true;
-    },
-  },
+    }
+  }
 ];
 
 const { pageName } = await inquirer.prompt(promptList);
@@ -56,11 +56,9 @@ const deleteMiniprogramPage = async (pageName) => {
 
 const updateAppJSON = async (pageName) => {
   try {
-    appJSON.pages = appJSON.pages.filter(
-      (name) => name !== `pages/${pageName}/index`
-    );
+    appJSON.pages = appJSON.pages.filter((name) => name !== `pages/${pageName}/index`);
     await writeFile("workspace/app.json", JSON.stringify(appJSON, null, 2), {
-      flag: "w+",
+      flag: "w+"
     });
     log(chalk.blue("成功在app.json中删除页面信息"));
   } catch (error) {
@@ -72,28 +70,22 @@ const updateSubpackageMapJSON = async (pageName) => {
   try {
     const subpackageName = nowPages[pageName];
     delete nowPages[pageName];
-    nowSubpackages[subpackageName] = nowSubpackages[subpackageName].filter(
-      (name) => name !== pageName
-    );
+    nowSubpackages[subpackageName] = nowSubpackages[subpackageName].filter((name) => name !== pageName);
     if (nowSubpackages[subpackageName].length === 0 && subpackageName !== "main") {
-      delete nowSubpackages[subpackageName]
+      delete nowSubpackages[subpackageName];
     }
-    await writeFile(
-      "subpackageMap.json",
-      JSON.stringify(subpackageMap, null, 2),
-      {
-        flag: "w+",
-      }
-    );
+    await writeFile("subpackageMap.json", JSON.stringify(subpackageMap, null, 2), {
+      flag: "w+"
+    });
     log(chalk.blue("成功在subpackageMap.json中删除页面信息"));
   } catch (error) {
     handleErr("在subpackageMap.json中删除相关信息时出错", error);
   }
 };
 
-await deleteRaxPage(pageName)
-await deleteMiniprogramPage(pageName)
-await updateAppJSON(pageName)
-await updateSubpackageMapJSON(pageName)
+await deleteRaxPage(pageName);
+await deleteMiniprogramPage(pageName);
+await updateAppJSON(pageName);
+await updateSubpackageMapJSON(pageName);
 
-log(chalk.blue(`${pageName}删除成功`))
+log(chalk.blue(`${pageName}删除成功`));

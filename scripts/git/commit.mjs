@@ -19,25 +19,14 @@ const promptList = [
       misc:      不属于以上任何一个分类
     `,
     name: "type",
-    choices: [
-      "feat",
-      "fix",
-      "refactor",
-      "chore",
-      "docs",
-      "style",
-      "perf",
-      "test",
-      "ci",
-      "misc",
-    ],
+    choices: ["feat", "fix", "refactor", "chore", "docs", "style", "perf", "test", "ci", "misc"],
     pageSize: 14,
-    loop: false,
+    loop: false
   },
   {
     type: "input",
     message: "填写本次commit的影响范围(填写主要受影响的页面或组件等, 可选):",
-    name: "scope",
+    name: "scope"
   },
   {
     type: "input",
@@ -53,8 +42,8 @@ const promptList = [
         return false;
       }
       return true;
-    },
-  },
+    }
+  }
 ];
 
 const handleErr = (err, message) => {
@@ -81,10 +70,30 @@ const gitAdd = () =>
     });
   });
 
+const formatFiles = () =>
+  new Promise((resolve) => {
+    exec(`yarn format`, (err, stdout) => {
+      if (err) {
+        handleErr(err, "yarn format执行出错");
+      }
+      handleResolve(stdout, "yarn format执行成功", resolve);
+    });
+  });
+
+const lintFiles = () =>
+  new Promise((resolve) => {
+    exec(`yarn lint`, (err, stdout) => {
+      if (err) {
+        handleErr(err, "yarn lint执行出错");
+      }
+      handleResolve(stdout, "yarn lint执行成功", resolve);
+    });
+  });
+
 const gitCommit = (type, scope, subject) =>
   new Promise((resolve) => {
     if (scope !== "") {
-      scope = `(${scope})`
+      scope = `(${scope})`;
     }
     exec(`git commit -m "${type}${scope}: ${subject}" -n`, (err, stdout) => {
       if (err) {
@@ -97,5 +106,9 @@ const gitCommit = (type, scope, subject) =>
 const { type, scope, subject } = await inquirer.prompt(promptList);
 
 await gitAdd();
+
+await formatFiles();
+
+await lintFiles();
 
 await gitCommit(type, scope, subject);

@@ -7,9 +7,15 @@ const Index = () => {
       url: "/pages/subpackage-1/secondPage/index"
     });
   };
+  const getInstance = () => {
+    const appInstance = getApp();
+    console.log(appInstance);
+    appInstance.b.c += 1;
+  };
   const [count, setCount] = useState(0);
   const addCount = (count: number) => {
     setCount(count + 1);
+    getInstance();
   };
   useEffect(() => {
     console.log("count:", count);

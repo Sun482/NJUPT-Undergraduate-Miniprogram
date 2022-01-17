@@ -1,6 +1,27 @@
 # 南邮本科生小程序代码更新日志
 
 
+## [0.0.11](https://github.com/Qingyou-Studio/NJUPT-Undergraduate-Miniprogram/compare/0.0.10...0.0.11) (2022-01-17)
+
+
+### Features
+*  增加eslint、prettier、typescript的支持  @[Awen-hub](https://github.com/Awen-hub), 2022-01-17 ([bab143d](https://github.com/Qingyou-Studio/NJUPT-Undergraduate-Miniprogram/commit/bab143de4adab7c16b73c64029ee1e0cb4a5291c))
+
+### Bug Fixes
+* **lint:** 修改lint和add执行顺序  @[Awen-hub](https://github.com/Awen-hub), 2022-01-17 ([ac2eb6b](https://github.com/Qingyou-Studio/NJUPT-Undergraduate-Miniprogram/commit/ac2eb6b7f29a41c9e3d526b509d275e5bde61bca))
+
+### Perf
+*  重构项目目录结构  @[Awen-hub](https://github.com/Awen-hub), 2022-01-16 ([ac61fb9](https://github.com/Qingyou-Studio/NJUPT-Undergraduate-Miniprogram/commit/ac61fb95894c3dfdea6c4477e64b655a68d3baf9))
+*  重构压缩css插件  @[Awen-hub](https://github.com/Awen-hub), 2022-01-15 ([84c5be8](https://github.com/Qingyou-Studio/NJUPT-Undergraduate-Miniprogram/commit/84c5be8a1a24a43c22baf18b653d6a52aac1befe))
+* **log:** 更新日志  @[Awen-hub](https://github.com/Awen-hub), 2022-01-15 ([bad194a](https://github.com/Qingyou-Studio/NJUPT-Undergraduate-Miniprogram/commit/bad194aacf5624f4798785deaf1117769128e394))
+
+### Others
+*  修改package.json和AppLog.json  @[Awen-hub](https://github.com/Awen-hub), 2022-01-17 ([6493d7c](https://github.com/Qingyou-Studio/NJUPT-Undergraduate-Miniprogram/commit/6493d7c9c1c168332cc608458b128e2c722e9638))
+
+
+
+
+
 ## [0.0.10](https://github.com/Qingyou-Studio/NJUPT-Undergraduate-Miniprogram/compare/0.0.9...0.0.10) (2022-01-15)
 
 

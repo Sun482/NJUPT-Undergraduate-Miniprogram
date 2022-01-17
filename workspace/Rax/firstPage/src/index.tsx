@@ -1,18 +1,26 @@
+import { useState, useEffect } from "rax";
 import "./index.less";
 
-interface IndexProps {
-  name: string;
-}
-const Index = (props: IndexProps) => {
+const Index = () => {
   const toSecondPage = () => {
     wx.navigateTo({
       url: "/pages/subpackage-1/secondPage/index"
     });
   };
-  console.log(props);
+  const [count, setCount] = useState(0);
+  const addCount = (count: number) => {
+    setCount(count + 1);
+  };
+  useEffect(() => {
+    console.log("count:", count);
+  }, [count]);
   return (
     <view className="rax-demo">
-      Hello World, I am secondPage!
+      Hello World, I am firstPage!
+      <view>{count}</view>
+      <view>
+        <button onClick={addCount(count)}>点击+1</button>
+      </view>
       <button onClick={toSecondPage}>to secondPage</button>
     </view>
   );

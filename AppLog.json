@@ -1,53 +1,37 @@
 {
   "data": [
     {
-      "content": [
-        "增加对eslint、prettier、typescript的支持"
-      ],
+      "content": ["增加对eslint、prettier、typescript的支持"],
       "title": "2022-01-17 新版本(V0.0.11)",
       "version": "0.0.11"
     },
     {
-      "content": [
-        "优化发版流程"
-      ],
+      "content": ["优化发版流程"],
       "title": "2022-01-15 新版本(V0.0.10)",
       "version": "0.0.10"
     },
     {
-      "content": [
-        "增加README.md"
-      ],
+      "content": ["增加README.md"],
       "title": "2022-01-14 新版本(V0.0.9)"
     },
     {
-      "content": [
-        "依赖引擎修改为yarn"
-      ],
+      "content": ["依赖引擎修改为yarn"],
       "title": "2022-01-14 新版本(V0.0.8)"
     },
     {
-      "content": [
-        "重构init和build逻辑"
-      ],
+      "content": ["重构init和build逻辑"],
       "title": "2022-01-14 新版本(V0.0.7)"
     },
     {
-      "content": [
-        "增加release更新说明"
-      ],
+      "content": ["增加release更新说明"],
       "title": "2022-01-08 新版本(V0.0.6)"
     },
     {
-      "content": [
-        "自动化release"
-      ],
+      "content": ["自动化release"],
       "title": "2022-01-08 新版本(V0.0.5)"
     },
     {
-      "content": [
-        "使用GitHub-action生成日志"
-      ],
+      "content": ["使用GitHub-action生成日志"],
       "title": "2022-01-08 新版本(V0.0.4)"
     }
   ],

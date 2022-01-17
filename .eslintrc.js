@@ -10,7 +10,9 @@ module.exports = {
       }
     ],
     "no-console": "off",
-    "import/no-extraneous-dependencies": "off"
+    "import/no-extraneous-dependencies": "off",
+    "@typescript-eslint/no-var-requires": 0,
+    "consistent-return": "off"
   },
   parser: "@typescript-eslint/parser",
   plugins: ["@typescript-eslint"]

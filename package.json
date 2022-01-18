@@ -14,7 +14,7 @@
     "changelog": "node scripts/release/changelog.mjs",
     "applog": "node scripts/release/applog.mjs",
     "updateVersion": "node scripts/release/updateVersion.mjs",
-    "lint": "eslint workspace/Rax/*/src/**/*.{tsx,tx,js,jsx}",
+    "lint": "eslint workspace/Rax/*/src/**/*.{tsx,tx,js,jsx} --fix -c workspace/Rax/.eslintrc.js",
     "format": "prettier --config .prettierrc --write workspace/Rax/*/src/**/*.{tsx,tx,less,js,jsx}"
   },
   "private": true,

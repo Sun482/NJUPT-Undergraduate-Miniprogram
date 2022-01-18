@@ -56,6 +56,7 @@
     "parse-git-commit": "^0.1.3",
     "prettier": "^2.5.1",
     "purgecss": "^4.1.3",
+    "rax": "^1.2.2",
     "read-first-line": "^1.0.5",
     "typescript": "^4.5.4",
     "uglify-js": "^3.14.5"

@@ -1,5 +1,5 @@
 module.exports = {
-  extends: ["eslint-config-airbnb-base", "plugin:@typescript-eslint/recommended", "plugin:prettier/recommended"],
+  extends: ["plugin:@typescript-eslint/recommended", "plugin:prettier/recommended", "plugin:rax-compile-time-miniapp/recommended"],
   rules: {
     "prettier/prettier": [
       "error",
@@ -11,11 +11,14 @@ module.exports = {
     ],
     "no-console": "off",
     "import/no-extraneous-dependencies": "off",
-    "@typescript-eslint/no-var-requires": 0,
+    "@typescript-eslint/no-var-requires": "off",
     "consistent-return": "off",
     "no-shadow": "off",
-    "@typescript-eslint/no-empty-function": 0
+    "@typescript-eslint/no-empty-function": "off",
+    "@typescript-eslint/quotes": "off",
+    "comma-dangle": "off",
+    "@typescript-eslint/no-shadow": "off"
   },
   parser: "@typescript-eslint/parser",
-  plugins: ["@typescript-eslint"]
+  plugins: ["@typescript-eslint", "rax-compile-time-miniapp"]
 };

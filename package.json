@@ -27,7 +27,6 @@
   },
   "dependencies": {
     "jsx2mp-runtime": "^0.4.8",
-    "rax": "^1.2.2",
     "wx-axios": "^0.0.7"
   },
   "peerDependencies": {

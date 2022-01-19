@@ -157,6 +157,16 @@ const generateProjectConfigJSON = async () => {
 await generateProjectConfigJSON();
 log(chalk.blue("成功生成project.config.json"));
 
+const generateSitemapJSON = async () => {
+  const projectConfigJSON = require("../../../workspace/sitemap.json");
+  await writeFile("dist/sitemap.json", compressJSON(projectConfigJSON), {
+    flag: "w+"
+  });
+};
+
+await generateSitemapJSON();
+log(chalk.blue("成功生成sitemap.json"));
+
 const runBuildInRaxPage = (pageName) =>
   new Promise((resolve) => {
     log(chalk.blue(`${pageName}开始构建`));

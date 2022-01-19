@@ -1,6 +1,32 @@
 # 南邮本科生小程序代码更新日志
 
 
+## [0.0.12](https://github.com/Qingyou-Studio/NJUPT-Undergraduate-Miniprogram/compare/0.0.11...0.0.12) (2022-01-19)
+
+
+### Bug Fixes
+* **eslint:** 修复部分eslint错误问题  @[Awen-hub](https://github.com/Awen-hub), 2022-01-19 ([61642fd](https://github.com/Qingyou-Studio/NJUPT-Undergraduate-Miniprogram/commit/61642fd685b3dbf254627e4c9c944cf804dc4994))
+*  修复依赖丢失问题  @[Awen-hub](https://github.com/Awen-hub), 2022-01-18 ([fb6cc06](https://github.com/Qingyou-Studio/NJUPT-Undergraduate-Miniprogram/commit/fb6cc06c43954ddd5d7782eaed7c462546e9e5f2))
+* **eslint:** 修复eslint报错问题  @[Awen-hub](https://github.com/Awen-hub), 2022-01-18 ([0e610d7](https://github.com/Qingyou-Studio/NJUPT-Undergraduate-Miniprogram/commit/0e610d734f9cfa09d6bdf28e498830588d298685))
+* **开发配置:** 关闭开发者工具热重载导致页面更新失效问题  @[Awen-hub](https://github.com/Awen-hub), 2022-01-17 ([5ebe8b0](https://github.com/Qingyou-Studio/NJUPT-Undergraduate-Miniprogram/commit/5ebe8b014246f29d9a4bba258af63a064998edf9))
+* **eslint:** 修复eslint对分号的处理和action不触发lint问题  @[Awen-hub](https://github.com/Awen-hub), 2022-01-17 ([a1c1c85](https://github.com/Qingyou-Studio/NJUPT-Undergraduate-Miniprogram/commit/a1c1c859be10160ee2887d6e52f51c47c80c74d0))
+
+### Perf
+* **eslint:** 修复eslint报错问题，同时引入编译时eslint插件  @[Awen-hub](https://github.com/Awen-hub), 2022-01-18 ([ce7c513](https://github.com/Qingyou-Studio/NJUPT-Undergraduate-Miniprogram/commit/ce7c513ad23acd9f9662ec0cea191172b934c6bb))
+* **eslint:** 修改eslint配置文件影响范围  @[Awen-hub](https://github.com/Awen-hub), 2022-01-18 ([2468e1f](https://github.com/Qingyou-Studio/NJUPT-Undergraduate-Miniprogram/commit/2468e1f3358ce8a7d67bf7c1b2989687be4e427c))
+*  删除rax依赖  @[Awen-hub](https://github.com/Awen-hub), 2022-01-18 ([98e84e5](https://github.com/Qingyou-Studio/NJUPT-Undergraduate-Miniprogram/commit/98e84e5b9830f173846832d2ba4cd0232d1063b6))
+*  增加依赖rax  @[Awen-hub](https://github.com/Awen-hub), 2022-01-17 ([295ccee](https://github.com/Qingyou-Studio/NJUPT-Undergraduate-Miniprogram/commit/295ccee7035d95b2d0e23f409917e2909207ea15))
+* **eslint:** 修复eslint报错问题  @[Awen-hub](https://github.com/Awen-hub), 2022-01-17 ([a78bca4](https://github.com/Qingyou-Studio/NJUPT-Undergraduate-Miniprogram/commit/a78bca4028991a889bd70ed927fd8a417e6c2200))
+* **action:** 增加合并代码时的状态检查  @[Awen-hub](https://github.com/Awen-hub), 2022-01-17 ([4f14889](https://github.com/Qingyou-Studio/NJUPT-Undergraduate-Miniprogram/commit/4f148892975c8693501d3dd1587619e38833268c))
+* **log:** 更新日志  @[Awen-hub](https://github.com/Awen-hub), 2022-01-17 ([c25fe0b](https://github.com/Qingyou-Studio/NJUPT-Undergraduate-Miniprogram/commit/c25fe0bd3dc2ca173311cb8917754b163aab8a9c))
+
+### Others
+*  修改package.json和AppLog.json  @[Awen-hub](https://github.com/Awen-hub), 2022-01-19 ([9ebe41f](https://github.com/Qingyou-Studio/NJUPT-Undergraduate-Miniprogram/commit/9ebe41f247722fa03af4526ad8bd053a937024a7))
+
+
+
+
+
 ## [0.0.11](https://github.com/Qingyou-Studio/NJUPT-Undergraduate-Miniprogram/compare/0.0.10...0.0.11) (2022-01-17)
 
 

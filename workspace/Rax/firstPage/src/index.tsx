@@ -25,7 +25,7 @@ const Index = () => {
       Hello World, I am firstPage!
       <view>{count}</view>
       <view>
-        <button onClick={addCount(count)}>点击+1</button>
+        <button onClick={() => addCount(count)}>点击+1</button>
       </view>
       <button onClick={toSecondPage}>to secondPage</button>
     </view>

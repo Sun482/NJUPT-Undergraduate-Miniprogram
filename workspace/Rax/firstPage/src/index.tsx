@@ -1,5 +1,7 @@
 import { useState, useEffect } from "rax";
 import "./index.less";
+import Context from "./context";
+import Item from "./Item";
 
 const Index = () => {
   const toSecondPage = () => {
@@ -25,9 +27,12 @@ const Index = () => {
       Hello World, I am firstPage!
       <view>{count}</view>
       <view>
-        <button onClick={() => addCount(count)}>点击+1</button>
+        <button onClick={() => addCount(count)}>点击+2</button>
       </view>
       <button onClick={toSecondPage}>to secondPage</button>
+      <Context.Provider value={"Mike"}>
+        <Item></Item>
+      </Context.Provider>
     </view>
   );
 };

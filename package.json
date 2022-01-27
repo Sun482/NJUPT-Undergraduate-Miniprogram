@@ -5,7 +5,7 @@
   "scripts": {
     "init:rax": "node scripts/rax/init/index.mjs",
     "delete": "node scripts/rax/delete/index.mjs",
-    "build": "node scripts/rax/build/index.mjs",
+    "build": "node cli/dist/build/build.js",
     "start": "node scripts/rax/start/index.mjs",
     "preinstall": "npx only-allow yarn",
     "commit": "node scripts/git/commit.mjs",

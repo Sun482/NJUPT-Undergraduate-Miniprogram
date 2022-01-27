@@ -1,0 +1,19 @@
+{
+  "name": "miniprogram-cli",
+  "version": "0.0.12",
+  "description": "南邮小程序4.0 CLI",
+  "main": "index.js",
+  "scripts": {
+    "build": "npm run clean && npm run prod",
+    "clean": "rimraf dist",
+    "prod":"tsc"
+  },
+  "files": ["src"],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "typescript": "^4.5.5",
+    "webpack": "^5.67.0",
+    "webpack-cli": "^4.9.2"
+  }
+}

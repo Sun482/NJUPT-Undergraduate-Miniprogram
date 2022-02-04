@@ -16,13 +16,10 @@
     "rootDir": "./src",
     "sourceMap": false,
     "strictNullChecks": true,
-    "target": "es2015",
+    "target": "ES3",
     "traceResolution": false,
     "types": ["node"],
     "declaration": true
   },
-  // "include": [
-  //   "./src/build",
-  //   "./src/plugins"
-  // ],
+
 }

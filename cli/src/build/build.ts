@@ -2,4 +2,8 @@ import { webpack } from "webpack";
 
 import { webpackConfig } from "./config";
 const project = webpack(webpackConfig);
-project.run((err, res) => {});
+project.run((err, res) => {
+  if (err) {
+    console.error(err);
+  }
+});

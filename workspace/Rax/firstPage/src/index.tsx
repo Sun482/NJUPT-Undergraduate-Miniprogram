@@ -1,32 +1,22 @@
-import { useState, useEffect } from "rax";
+import { useCallback, useEffect, useState } from "rax";
+import { createAppHook } from "state";
 import "./index.less";
-
+const { useAppInstance, useAppState } = createAppHook(useState, useEffect, useCallback);
 const Index = () => {
   const toSecondPage = () => {
     wx.navigateTo({
       url: "/pages/subpackage-1/secondPage/index"
     });
   };
-  const getInstance = () => {
-    const appInstance = getApp();
-    console.log(appInstance);
-    appInstance.b.c += 1;
-  };
-  const [count, setCount] = useState(0);
-  const addCount = (count: number) => {
-    setCount(count + 1);
-    getInstance();
-  };
-  useEffect(() => {
-    console.log("count:", count);
-  }, [count]);
+  const [count, setCount] = useAppState("count", 123);
   return (
     <view className="rax-demo">
-      Hello World, I am firstPage!
-      <view>{count}</view>
-      <view>
-        <button onClick={() => addCount(count)}>点击+1</button>
-      </view>
+      Hello World, I am {count}
+      <button
+        onClick={() => {
+          setCount((prev) => prev + 1);
+        }}
+      ></button>
       <button onClick={toSecondPage}>to secondPage</button>
     </view>
   );

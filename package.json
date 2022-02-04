@@ -27,7 +27,10 @@
   },
   "dependencies": {
     "jsx2mp-runtime": "^0.4.8",
-    "rax": "^1.2.2"
+    "rax": "^1.2.2",
+    "react-redux": "^7.2.6",
+    "state": "file:./lib/state",
+    "redux-react-hooks": "^0.6.1"
   },
   "peerDependencies": {
     "jsx2mp-runtime": "^0.4.8"
@@ -40,7 +43,6 @@
     "@typescript-eslint/parser": "5.0.0",
     "build-plugin-component": "^1.0.0",
     "build-scripts": "^1.1.1",
-    "chalk": "^5.0.0",
     "clean-css": "^5.2.2",
     "compare-versions": "^4.1.2",
     "css-shortener-2": "^2.1.2",
@@ -62,7 +64,6 @@
     "prettier": "^2.5.1",
     "purgecss": "^4.1.3",
     "read-first-line": "^1.0.5",
-    "typescript": "~4.4.4",
-    "uglify-js": "^3.14.5"
+    "typescript": "~4.4.4"
   }
 }

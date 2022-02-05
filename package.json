@@ -28,9 +28,7 @@
   "dependencies": {
     "jsx2mp-runtime": "^0.4.8",
     "rax": "^1.2.2",
-    "react-redux": "^7.2.6",
-    "state": "file:./lib/state",
-    "redux-react-hooks": "^0.6.1"
+    "state": "file:./lib/state"
   },
   "peerDependencies": {
     "jsx2mp-runtime": "^0.4.8"

@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useState } from "rax";
 import { createAppHook } from "state";
 import "./index.less";
-const { useAppInstance, useAppState } = createAppHook(useState, useEffect, useCallback);
+const { useAppState } = createAppHook(useState, useEffect, useCallback);
 const Index = () => {
   const toSecondPage = () => {
     wx.navigateTo({
@@ -16,7 +16,9 @@ const Index = () => {
         onClick={() => {
           setCount((prev) => prev + 1);
         }}
-      ></button>
+      >
+        点我哈哈
+      </button>
       <button onClick={toSecondPage}>to secondPage</button>
     </view>
   );

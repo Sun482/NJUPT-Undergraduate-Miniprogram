@@ -2,10 +2,17 @@
   "name": "state",
   "version": "1.0.0",
   "description": "",
-  "main": "state.js",
+  "main": "dist/state.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "tsc"
   },
+  "types": "dist/state.d.ts",
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "typescript": "^4.5.5"
+  },
+  "devDependencies": {
+    "@types/wechat-miniprogram": "^3.4.0"
+  }
 }

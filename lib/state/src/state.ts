@@ -47,7 +47,7 @@ const useAppState1 = (useState, useEffect, useCallback, name, initialValue) => {
         if (app) app.globalData[name] = typeof v === "function" ? v(state) : v;
       }
     },
-    [app]
+    [app, state]
   );
 
   return [state, setter];

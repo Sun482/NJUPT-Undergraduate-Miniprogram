@@ -9,6 +9,19 @@
 $ yarn
 ```
 
+### 库编译
+* cli脚手架
+```bash
+$ cd ./cli
+$ yarn
+$ yarn build
+```
+* state状态管理库
+```bash
+$ cd ./lib/state
+$ yarn
+$ yarn build
+```
 ### 创建页面
 
 ```bash

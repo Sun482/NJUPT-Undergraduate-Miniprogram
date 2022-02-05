@@ -1,6 +1,23 @@
 # 南邮本科生小程序代码更新日志
 
 
+## [0.0.13](https://github.com/Qingyou-Studio/NJUPT-Undergraduate-Miniprogram/compare/0.0.12...0.0.13) (2022-01-25)
+
+
+### Features
+* **types:** 增加rax的ts校验依赖  @[Awen-hub](https://github.com/Awen-hub), 2022-01-23 ([0826553](https://github.com/Qingyou-Studio/NJUPT-Undergraduate-Miniprogram/commit/0826553e82c078e2c51568f91a1101f20681b9e7))
+
+### Perf
+*  测试提交  @[Awen-hub](https://github.com/Awen-hub), 2022-01-25 ([6276685](https://github.com/Qingyou-Studio/NJUPT-Undergraduate-Miniprogram/commit/62766854bfbb364449780c39994a93abdefffe81))
+* **log:** 更新日志  @[Awen-hub](https://github.com/Awen-hub), 2022-01-19 ([6465b2b](https://github.com/Qingyou-Studio/NJUPT-Undergraduate-Miniprogram/commit/6465b2b3253c95773eb24e6d65a4b4b3944b2312))
+
+### Others
+*  修改package.json和AppLog.json  @[Awen-hub](https://github.com/Awen-hub), 2022-01-25 ([91de7be](https://github.com/Qingyou-Studio/NJUPT-Undergraduate-Miniprogram/commit/91de7be83523b7b3df92e04d2b2d5c302d3bc91e))
+
+
+
+
+
 ## [0.0.12](https://github.com/Qingyou-Studio/NJUPT-Undergraduate-Miniprogram/compare/0.0.11...0.0.12) (2022-01-19)
 
 

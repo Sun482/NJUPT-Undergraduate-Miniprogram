@@ -1,7 +1,9 @@
 import { useCallback, useEffect, useState } from "rax";
 import { createAppHook } from "state";
 import "./index.less";
+
 const { useAppState } = createAppHook(useState, useEffect, useCallback);
+
 const Index = () => {
   const toSecondPage = () => {
     wx.navigateTo({
@@ -11,6 +13,7 @@ const Index = () => {
   const [count, setCount] = useAppState("count", 123);
   return (
     <view className="rax-demo">
+
       Hello World, I am {count}
       <button
         onClick={() => {
@@ -19,7 +22,11 @@ const Index = () => {
       >
         点我哈哈
       </button>
+
       <button onClick={toSecondPage}>to secondPage</button>
+      <Context.Provider value={"Mike"}>
+        <Item></Item>
+      </Context.Provider>
     </view>
   );
 };
